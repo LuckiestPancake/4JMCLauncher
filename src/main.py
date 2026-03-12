@@ -26,9 +26,7 @@ with open(f"{username_path}", "r") as file:
 window = QWidget()
 window.setWindowTitle("4JMC Launcher")
 window.resize(300, 200)
-window.setWindowIcon(QIcon("media/favicon.png"))
-
-title = QLabel("4JMC Launcher - By LuckiestPancake")
+window.setWindowIcon(QIcon("media/favicon.ico"))
 
 username = QLineEdit()
 username.setPlaceholderText("Enter username")
@@ -40,11 +38,9 @@ launch_button = QPushButton("Launch")
 
 def launch():
     name = username.text().strip()
-    if name == "":
-        name = "TPlayer"
-    status.setText(f"Launching as {name}")
     
-    os.startfile(launch_path)
+    # os.startfile(launch_path) this is the old way
+    os.system(f'"{launch_path}" -name {name} -fullscreen')
     
     
 
@@ -66,7 +62,6 @@ save_button.clicked.connect(save_username)
 
 
 layout = QVBoxLayout()
-layout.addWidget(title)
 layout.addWidget(username)
 layout.addWidget(save_button)
 layout.addWidget(launch_button)
