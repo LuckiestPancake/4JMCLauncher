@@ -17,9 +17,12 @@ A Minecraft Legacy Console Edition Launcher, that tries to make everything easy 
 
 # To-Do
 
-- [ ] Linux Build
-- [ ] Mac OS Build
+
+- [X] Windows Support
 - [ ] Windows Build
+- [ ] Linux Support
+- [ ] Mac OS Support
+
 
 # Developed
 Created by LuckiestPancake this launcher was made in electron, html, css, js
