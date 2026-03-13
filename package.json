@@ -1,0 +1,11 @@
+{
+  "name": "ConsoleCraft Launcher",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {
+    "electron": "^41.0.1"
+  },
+  "scripts": {
+    "start": "electron ."
+  }
+}

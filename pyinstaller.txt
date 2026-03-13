@@ -1,3 +1,0 @@
-pyinstaller --onefile --windowed --icon=media/favicon.ico --add-data "media/favicon.ico;media" main.py
-
-pyinstaller --onefile --windowed --icon=media/favicon.ico --add-data "media/favicon.ico;media" --distpath "C:\Users\Administrator\Documents\GitHub\LauncherBuilds" main.py
