@@ -1,4 +1,4 @@
-[![Discord](https://img.shields.io/discord/1481750921456390185?label=Join%20Chat&logo=discord&color=7289DA)](https://discord.gg/He6JD39ZAN)
+[![Discord](https://img.shields.io/discord/1481750916670685184?label=Join%20Chat&logo=discord&color=7289DA)](https://discord.gg/He6JD39ZAN)
 
 # ConsoleCraft Launcher
 
