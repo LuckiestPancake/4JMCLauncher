@@ -21,17 +21,122 @@ body {
     color: white;
 }
 
+* {
+    user-select: none;
+    margin: 0;
+    padding: 0;
+}
+
 .launcher-options-bottom {
     position: absolute;
     bottom: 20px;
+    margin-bottom: 20px;
     display: flex;
     gap: 20px;
+    flex-direction: row;
+    justify-content:space-evenly ;
+    width: 100vw;
 }
 
-.legacy-edition-logo {
-    width: 300px;
+
+
+
+.input-wide {
+
+    background: url("media/buttons/textures/locked-wide.png") no-repeat center center;
+    background-size: 100% 100% !important;
+    width: 120px;
+    height: 20px;
+    transform: scale(2);
+    font-family: 'minecraft', sans-serif;
+    font-size: 8px;
+    color: white;
+    text-shadow: 1px 1px 0px #3f3f3f; 
+    margin-top: auto;
+    font-size: 8px;
+    padding-left: 10px;
+    color: white;
+    border: none;        
+    outline: none;     
+    appearance: none;
+    text-align: left;
+    
+}
+
+.button-wide {
+    background: url("media/buttons/textures/default-wide.png") no-repeat center center;
+    background-size: 100% 100% !important;
+    width: 150px;
+    height: 20px;
+    transform: scale(2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+    transition: all 0.05s ease-in-out;
+
+
+
+
+}
+
+.button-wide p {
+    font-family: 'minecraft', sans-serif;
+    font-size: 8px;
+    color: white;
+    text-shadow: 1px 1px 0px #3f3f3f; 
+    margin-bottom: 2.3px;
+}
+
+.button-wide:hover {
+    cursor: pointer;
+    background: url("media/buttons/textures/hover-wide.png") no-repeat center center;
+}
+
+.button-wide:active {
+    background: url("media/buttons/textures/clicked-wide.png") no-repeat center center;
+}
+
+.play-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.play-section-title {
+    width: 340px;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+
+.playtime-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    justify-content: right;
+    align-items: flex-end;
+    text-align: right;
+    gap: 3px;
+    margin-top: auto;
+}
+
+.playtime-section p {
+    font-family: 'minecraft', sans-serif;
+    font-size: 14px;
+    color: white;
+    text-shadow: 1px 1px 0px #3f3f3f; 
+    margin-bottom: 2.3px;
+}
+
+.playtime-section .playtime-section-time {
+    color: #b0afad !important;
+    text-shadow: 1px 1px 0px #242424; 
 }
 
 h1 {
