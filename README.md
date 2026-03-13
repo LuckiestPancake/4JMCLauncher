@@ -1,4 +1,4 @@
-
+[![Discord](https://img.shields.io/discord/INVITE_CHANNEL_ID?label=chat&logo=discord)](https://discord.gg/He6JD39ZAN)
 
 # ConsoleCraft Launcher
 
