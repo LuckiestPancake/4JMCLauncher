@@ -13,16 +13,14 @@ A Minecraft Legacy Console Edition Launcher, that tries to make everything easy 
 - Lightweight and simple
 
 # Supported Platforms
-- Windows
+- [X] Windows
+- [X] Linux Wine
+- [ ] Linux
+- [ ] Mac OS
 
 # To-Do
-
-
-- [X] Windows Support
-- [ ] Windows Build
-- [ ] Linux Support
-- [ ] Mac OS Support
-
+- [ ] Linux
+- [ ] Mac OS
 
 # Developed
 Created by LuckiestPancake this launcher was made in electron, html, css, js
