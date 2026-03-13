@@ -10,7 +10,7 @@ function createWindow() {
     height: 600,
     resizable: false,
     icon: path.join(__dirname, "media", "icon.png"), 
-    title: "ConsoleCraft::Launcher",                 
+    title: "ConsoleCraft | Launcher",                 
   });
 
   win.setMenu(null);
@@ -26,7 +26,7 @@ function createWindow() {
 
 
   win.webContents.on("did-finish-load", () => {
-    win.setTitle("ConsoleCraft::Launcher");
+    win.setTitle("ConsoleCraft | Launcher");
   });
 
 
@@ -35,7 +35,6 @@ function createWindow() {
   });
 
 
-  win.webContents.openDevTools();
 
   win.on("closed", () => {
     win = null;

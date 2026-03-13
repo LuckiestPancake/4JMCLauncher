@@ -7,14 +7,12 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    width: 100vw;
-    /* Adding a dark overlay to make the background feel more like a menu and make text pop */
+    width: 100vw; 
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("media/bg-modified.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    image-rendering: pixelated;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,14 +21,25 @@ body {
     color: white;
 }
 
+.launcher-options-bottom {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.legacy-edition-logo {
+    width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
 h1 {
     font-family: 'minecraft', sans-serif;
-    font-size: 80px; /* Larger title */
+    font-size: 20px;
     color: white;
-    /* The classic Minecraft text shadow (back layer) */
     text-shadow: 6px 6px 0px #3f3f3f; 
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 4px;
-    image-rendering: pixelated;
 }
