@@ -7,8 +7,14 @@ A Minecraft Legacy Console Edition Launcher, made around the time of the leak, t
 - Skins
 - Lightweight and simple
 
-# Credits
-Developer
-LuckiestPancake
+# Supported Platforms
+- Windows
 
-another repo I used as a reference since I have never made my own launcher before is [LegacyLauncher](https://github.com/gradenGnostic/LegacyLauncher) so thx to them <3
+# To-Do
+
+- [ ] Linux Build
+- [ ] Mac OS Build
+- [ ] Windows Build
+
+# Developed
+Created by LuckiestPancake this launcher was made in electron, html, css, js
