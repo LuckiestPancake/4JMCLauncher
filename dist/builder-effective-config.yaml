@@ -1,0 +1,12 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.consolecraft.launcher
+productName: ConsoleCraft Launcher
+files:
+  - filter:
+      - '**/*'
+win:
+  target: portable
+  icon: media/favicon.png
+electronVersion: 41.0.1
