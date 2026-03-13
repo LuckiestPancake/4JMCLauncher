@@ -28,6 +28,10 @@ body {
     font-family: 'minecraft', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 .launcher-options-bottom {
     position: absolute;
     bottom: 20px;

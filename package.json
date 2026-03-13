@@ -1,5 +1,8 @@
 {
-  "name": "ConsoleCraft Launcher",
+  "name": "cc-launcher",
+  "productName": "ConsoleCraft Launcher",
+  "author": "LuckiestPancake",
+  "description": "A Minecraft launcher for Legacy Console Edition that tries to add quality of life features and simplisitc!",
   "version": "1.0.0",
   "main": "main.js",
   "dependencies": {
@@ -7,7 +10,8 @@
     "extract-zip": "^2.0.1"
   },
   "devDependencies": {
-    "electron": "^41.0.1"
+    "electron": "^41.0.1",
+    "electron-builder": "^26.8.1"
   },
   "scripts": {
     "start": "electron ."
