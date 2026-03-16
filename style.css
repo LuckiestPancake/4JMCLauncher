@@ -18,6 +18,7 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    background-color: black;
     color: white;
     z-index: -2;
 }
@@ -42,16 +43,25 @@ a {
     text-decoration: none;
 }
 
+
+
 .launcher-options-bottom {
     position: absolute;
-    bottom: 20px;
-    margin-bottom: 20px;
+    bottom: 30px;
     display: flex;
-    gap: 20px;
     flex-direction: row;
-    justify-content:space-between ;
-    width: 100vw;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 50px;
+    pointer-events: none; 
 }
+
+.launcher-options-bottom > * {
+    pointer-events: auto;
+}
+
+
 
 .launcher-options-top {
     position: absolute;
@@ -68,8 +78,10 @@ a {
 .bottom-section {
     margin: 0 auto;
     padding: 16px;
-    width: 100%;
-    max-width: 320px;
+    width: 100vw;
+    display: flex;
+
+    justify-content: space-around;
     border-radius: 8px;
     z-index: 0;
 }
@@ -115,6 +127,17 @@ a {
 }
 
 .player-profile {
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    width: auto;
+    margin: 0;
+}
+
+.player-profile-gui {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -245,9 +268,13 @@ a {
 
     transition: all 0.05s ease-in-out;
 
+}
 
 
-
+.button-wide-g {
+    background: url("media/buttons/textures/locked-wide.png") no-repeat center center !important;
+    background-size: 100% 100% !important;
+    cursor: not-allowed !important;
 }
 
 
@@ -284,13 +311,11 @@ a {
 .playtime-section {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    justify-content: right;
+    justify-content: flex-end;
     align-items: flex-end;
     text-align: right;
-    gap: 3px;
-    margin-top: auto;
+    transform: translateX(30px);
+    gap: 2px;
 }
 
 .playtime-section p {

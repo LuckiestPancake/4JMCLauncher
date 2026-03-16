@@ -11,7 +11,7 @@ let gmdir, exepath, skinpath;
 const playBtn = document.getElementById("play-button");
 const importBtn = document.getElementById("import-skin-button");
 const saveBtn = document.getElementById("save-profile-button");
-const nameInp = document.querySelector(".input-wide");
+const nameInp = document.querySelector(".input-wide, .input-wide-g");
 
 async function init() {
   const userData = await ipcRenderer.invoke("get-app-path");
@@ -20,63 +20,71 @@ async function init() {
   skinpath = path.join(gmdir, "Common", "res", "mob", "char.png");
 
   const name = await ipcRenderer.invoke("store-get", "username");
-  if (name) nameInp.value = name;
+  if (name && nameInp) nameInp.value = name;
 }
 
-saveBtn.onclick = async () => {
-  if (!gmdir) return;
-  await ipcRenderer.invoke("store-set", "username", nameInp.value);
-  alert("Profile saved!");
-};
-
-importBtn.onclick = async () => {
-  if (!gmdir) return;
-  const file = await ipcRenderer.invoke("select-skin");
-  if (!file) return;
-
-  if (!fs.existsSync(gmdir)) {
-    alert("Please download the game first by clicking Play.");
-    return;
-  }
-
-  const buf = fs.readFileSync(file);
-  const img = new Image();
-  img.onload = () => {
-    const cvs = document.createElement("canvas");
-    cvs.width = 64;
-    cvs.height = 32;
-    const ctx = cvs.getContext("2d");
-    ctx.drawImage(img, 0, 0, 64, 32, 0, 0, 64, 32);
-    const b64 = cvs.toDataURL("image/png").split(",")[1];
-    const out = Buffer.from(b64, "base64");
-    
-    const sdir = path.dirname(skinpath);
-    if (!fs.existsSync(sdir)) fs.mkdirSync(sdir, { recursive: true });
-    fs.writeFileSync(skinpath, out);
-    alert("Skin imported!");
-  };
-  img.src = "data:image/png;base64," + buf.toString("base64");
-};
-
-playBtn.onclick = async () => {
-  if (!gmdir) return;
-  if (!fs.existsSync(exepath)) {
-    playBtn.querySelector("p").innerText = "Downloading...";
-    playBtn.style.pointerEvents = "none";
-    try {
-      await getbuild();
-      playBtn.querySelector("p").innerText = "Play";
-      playBtn.style.pointerEvents = "auto";
-      run();
-    } catch (err) {
-      alert("Download failed: " + err.message);
-      playBtn.querySelector("p").innerText = "Play";
-      playBtn.style.pointerEvents = "auto";
+if (saveBtn) {
+  saveBtn.onclick = async () => {
+    if (!gmdir) return;
+    if (nameInp) {
+      await ipcRenderer.invoke("store-set", "username", nameInp.value);
+      alert("Profile saved!");
     }
-  } else {
-    run();
-  }
-};
+  };
+}
+
+if (importBtn) {
+  importBtn.onclick = async () => {
+    if (!gmdir) return;
+    const file = await ipcRenderer.invoke("select-skin");
+    if (!file) return;
+
+    if (!fs.existsSync(gmdir)) {
+      alert("Please download the game first by clicking Play.");
+      return;
+    }
+
+    const buf = fs.readFileSync(file);
+    const img = new Image();
+    img.onload = () => {
+      const cvs = document.createElement("canvas");
+      cvs.width = 64;
+      cvs.height = 32;
+      const ctx = cvs.getContext("2d");
+      ctx.drawImage(img, 0, 0, 64, 32, 0, 0, 64, 32);
+      const b64 = cvs.toDataURL("image/png").split(",")[1];
+      const out = Buffer.from(b64, "base64");
+      
+      const sdir = path.dirname(skinpath);
+      if (!fs.existsSync(sdir)) fs.mkdirSync(sdir, { recursive: true });
+      fs.writeFileSync(skinpath, out);
+      alert("Skin imported!");
+    };
+    img.src = "data:image/png;base64," + buf.toString("base64");
+  };
+}
+
+if (playBtn) {
+  playBtn.onclick = async () => {
+    if (!gmdir) return;
+    if (!fs.existsSync(exepath)) {
+      playBtn.querySelector("p").innerText = "Downloading...";
+      playBtn.style.pointerEvents = "none";
+      try {
+        await getbuild();
+        playBtn.querySelector("p").innerText = "Play";
+        playBtn.style.pointerEvents = "auto";
+        await run();
+      } catch (err) {
+        alert("Download failed: " + err.message);
+        playBtn.querySelector("p").innerText = "Play";
+        playBtn.style.pointerEvents = "auto";
+      }
+    } else {
+      await run();
+    }
+  };
+}
 
 function getbuild() {
   return new Promise((resolve, reject) => {
@@ -110,8 +118,14 @@ function getbuild() {
   });
 }
 
-function run() {
-  const n = nameInp.value || "Player";
+async function run() {
+  let n = "Player";
+  if (nameInp) {
+    n = nameInp.value || "Player";
+  } else {
+    const savedName = await ipcRenderer.invoke("store-get", "username");
+    if (savedName) n = savedName;
+  }
   const cmd = `"${exepath}" -name "${n}"`;
   exec(cmd, { cwd: gmdir }, (err) => {
     if (err) alert("Launch error: " + err.message);
