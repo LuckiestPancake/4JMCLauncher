@@ -11,7 +11,7 @@ function createWindow() {
     width: 1000,
     height: 650,
     resizable: false,
-    icon: path.join(__dirname, "media", "icon.png"),
+    icon: path.join(__dirname, "media/icon.png"),
     title: "ConsoleCraft | Launcher",
     webPreferences: {
       nodeIntegration: true,
